@@ -14,8 +14,8 @@ module.exports = {
     },
 
     async put(req, res) {
-        const { name, size, position, hasLife } = req.body;
-        await Planet.update({ name, size, position, hasLife},
+        const { name, position, hasLife } = req.body;
+        await Planet.update({ name, position, hasLife},
             {
                 where: {
                     id: req.params.id,

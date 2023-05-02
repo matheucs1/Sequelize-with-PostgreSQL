@@ -3,26 +3,20 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("satelites", {
+    await queryInterface.createTable('spaceships', {
       id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
+        allowNull: false,
         primaryKey: true,
       },
       name: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      serial_number: {
+      capacity: {
         type: Sequelize.INTEGER,
         allowNull: false,
-      },
-      planetId: {
-        type: Sequelize.INTEGER,
-        references: { model: "planets", key: "id" },
-        allowNull: false,
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
       },
       createdAt: {
         type: Sequelize.DATE,
@@ -30,10 +24,10 @@ module.exports = {
       updatedAt: {
         type: Sequelize.DATE,
       },
-    });
+    })
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('satelites')
-  },
+    await queryInterface.dropTable('spaceships');
+  }
 };

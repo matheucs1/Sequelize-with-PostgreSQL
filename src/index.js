@@ -1,11 +1,12 @@
 const express = require('express');
 const routes = require('./routes');
 
-const app = express();
+require("../config/associations");
 
+const app = express();
 app.use(express.json());
 app.use(routes);
 
-app.listen(3000, 
-    console.log('Servidor iniciado na rota 3000 https://localhost.com')
-    )
+app.listen(3000, () => {
+    console.log('Servidor iniciado na rota 3000, https://localhost.com')
+})
